@@ -1,0 +1,1672 @@
+
+
+HI-TECH Software PIC LITE Macro Assembler V9.82 build 9453 
+                                                                                               Thu Apr 10 19:32:39 2025
+
+HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
+     1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 9453"
+     2                           
+     3                           opt pagewidth 120
+     4                           
+     5                           	opt lm
+     6                           
+     7                           	processor	16F877A
+     8                           clrc	macro
+     9                           	bcf	3,0
+    10  0000                     	endm
+    11                           clrz	macro
+    12                           	bcf	3,2
+    13  0000                     	endm
+    14                           setc	macro
+    15                           	bsf	3,0
+    16  0000                     	endm
+    17                           setz	macro
+    18                           	bsf	3,2
+    19  0000                     	endm
+    20                           skipc	macro
+    21                           	btfss	3,0
+    22  0000                     	endm
+    23                           skipz	macro
+    24                           	btfss	3,2
+    25  0000                     	endm
+    26                           skipnc	macro
+    27                           	btfsc	3,0
+    28  0000                     	endm
+    29                           skipnz	macro
+    30                           	btfsc	3,2
+    31  0000                     	endm
+    32  0000                     indf	equ	0
+    33  0000                     indf0	equ	0
+    34  0002                     pc	equ	2
+    35  0002                     pcl	equ	2
+    36  0003                     status	equ	3
+    37  0004                     fsr	equ	4
+    38  0004                     fsr0	equ	4
+    39  0001                     c	equ	1
+    40  0000                     z	equ	0
+    41  000A                     pclath	equ	10
+    42                           # 2 "E:\MPLAB_IDE\shy_3\shy_3.c"
+    43                           	psect config,class=CONFIG,delta=2 ;#
+    44                           # 2 "E:\MPLAB_IDE\shy_3\shy_3.c"
+    45  2007  FF29               	dw 0xFF29 ;#
+    46                           	FNROOT	_main
+    47                           	FNCALL	_int_rb,_sound_delay
+    48                           	FNCALL	_sound_delay,_delay1
+    49                           	FNCALL	_sound_delay,_delay3
+    50                           	FNCALL	_sound_delay,_delay2
+    51                           	FNCALL	_sound_delay,_delay4
+    52                           	FNCALL	intlevel1,_int_rb
+    53                           	global	intlevel1
+    54                           	FNROOT	intlevel1
+    55                           	global	_x
+    56                           psect	nvCOMMON,class=COMMON,space=1
+    57                           global __pnvCOMMON
+    58  007A                     __pnvCOMMON:
+    59  007A                     _x:
+    60  007A                            ds      1
+    61                           
+    62                           	global	_y
+    63  007B                     _y:
+    64  007B                            ds      1
+    65                           
+    66                           	global	_PORTB
+    67  0006                     _PORTB	set	6
+    68                           	global	_PORTD
+    69  0008                     _PORTD	set	8
+    70                           	global	_CARRY
+    71  0018                     _CARRY	set	24
+    72                           	global	_GIE
+    73  005F                     _GIE	set	95
+    74                           	global	_INTE
+    75  005C                     _INTE	set	92
+    76                           	global	_INTF
+    77  0059                     _INTF	set	89
+    78                           	global	_RBIE
+    79  005B                     _RBIE	set	91
+    80                           	global	_RBIF
+    81  0058                     _RBIF	set	88
+    82                           	global	_RE0
+    83  0048                     _RE0	set	72
+    84                           	global	_ADCON1
+    85  009F                     _ADCON1	set	159
+    86                           	global	_TRISB
+    87  0086                     _TRISB	set	134
+    88                           	global	_TRISD
+    89  0088                     _TRISD	set	136
+    90                           	global	_INTEDG
+    91  040E                     _INTEDG	set	1038
+    92                           	global	_TRISE0
+    93  0448                     _TRISE0	set	1096
+    94                           	global	_nRBPU
+    95  040F                     _nRBPU	set	1039
+    96                           	global	_EEADR
+    97  010D                     _EEADR	set	269
+    98                           	global	_EEDATA
+    99  010C                     _EEDATA	set	268
+   100                           	global	_EECON1
+   101  018C                     _EECON1	set	396
+   102                           	global	_EECON2
+   103  018D                     _EECON2	set	397
+   104                           	global	_RD
+   105  0C60                     _RD	set	3168
+   106                           	global	_WR
+   107  0C61                     _WR	set	3169
+   108                           	global	_WREN
+   109  0C62                     _WREN	set	3170
+   110                           	file	"shy_3.as"
+   111                           	line	#
+   112                           psect cinit,class=CODE,delta=2
+   113                           global start_initialization
+   114  01C0                     start_initialization:
+   115                           
+   116                           psect cinit,class=CODE,delta=2
+   117                           global end_of_initialization
+   118                           
+   119                           ;End of C runtime variable initialization code
+   120                           
+   121  01C0                     end_of_initialization:
+   122  01C0  0183               clrf status
+   123  01C1  120A  118A  299D   ljmp _main	;jump to C main() function
+   124                           psect	cstackCOMMON,class=COMMON,space=1
+   125                           global __pcstackCOMMON
+   126  0070                     __pcstackCOMMON:
+   127                           	global	?_delay1
+   128  0070                     ?_delay1:	; 0 bytes @ 0x0
+   129                           	global	??_delay1
+   130  0070                     ??_delay1:	; 0 bytes @ 0x0
+   131                           	global	?_delay2
+   132  0070                     ?_delay2:	; 0 bytes @ 0x0
+   133                           	global	??_delay2
+   134  0070                     ??_delay2:	; 0 bytes @ 0x0
+   135                           	global	?_delay3
+   136  0070                     ?_delay3:	; 0 bytes @ 0x0
+   137                           	global	??_delay3
+   138  0070                     ??_delay3:	; 0 bytes @ 0x0
+   139                           	global	?_delay4
+   140  0070                     ?_delay4:	; 0 bytes @ 0x0
+   141                           	global	??_delay4
+   142  0070                     ??_delay4:	; 0 bytes @ 0x0
+   143                           	global	?_sound_delay
+   144  0070                     ?_sound_delay:	; 0 bytes @ 0x0
+   145                           	global	?_int_rb
+   146  0070                     ?_int_rb:	; 0 bytes @ 0x0
+   147                           	global	?_main
+   148  0070                     ?_main:	; 0 bytes @ 0x0
+   149  0070                     	ds	1
+   150                           	global	delay1@i1
+   151  0071                     delay1@i1:	; 1 bytes @ 0x1
+   152                           	global	delay2@i1
+   153  0071                     delay2@i1:	; 1 bytes @ 0x1
+   154                           	global	delay3@i1
+   155  0071                     delay3@i1:	; 1 bytes @ 0x1
+   156                           	global	delay4@i1
+   157  0071                     delay4@i1:	; 1 bytes @ 0x1
+   158  0071                     	ds	1
+   159                           	global	delay1@i2
+   160  0072                     delay1@i2:	; 1 bytes @ 0x2
+   161                           	global	delay2@i2
+   162  0072                     delay2@i2:	; 1 bytes @ 0x2
+   163                           	global	delay3@i2
+   164  0072                     delay3@i2:	; 1 bytes @ 0x2
+   165                           	global	delay4@i2
+   166  0072                     delay4@i2:	; 1 bytes @ 0x2
+   167  0072                     	ds	1
+   168                           	global	??_sound_delay
+   169  0073                     ??_sound_delay:	; 0 bytes @ 0x3
+   170                           	global	sound_delay@i
+   171  0073                     sound_delay@i:	; 2 bytes @ 0x3
+   172  0073                     	ds	2
+   173                           	global	??_int_rb
+   174  0075                     ??_int_rb:	; 0 bytes @ 0x5
+   175  0075                     	ds	5
+   176                           psect	cstackBANK0,class=BANK0,space=1
+   177                           global __pcstackBANK0
+   178  0020                     __pcstackBANK0:
+   179                           	global	??_main
+   180  0020                     ??_main:	; 0 bytes @ 0x0
+   181  0020                     	ds	1
+   182 ;;Data sizes: Strings 0, constant 0, data 0, bss 0, persistent 2 stack 0
+   183 ;;Auto spaces:   Size  Autos    Used
+   184 ;; COMMON          14     10      12
+   185 ;; BANK0           80      1       1
+   186 ;; BANK1           80      0       0
+   187 ;; BANK3           96      0       0
+   188 ;; BANK2           96      0       0
+   189                           
+   190 ;;
+   191 ;; Pointer list with targets:
+   192                           
+   193                           
+   194                           
+   195 ;;
+   196 ;; Critical Paths under _main in COMMON
+   197 ;;
+   198 ;;   None.
+   199 ;;
+   200 ;; Critical Paths under _int_rb in COMMON
+   201 ;;
+   202 ;;   _int_rb->_sound_delay
+   203 ;;   _sound_delay->_delay1
+   204 ;;   _sound_delay->_delay3
+   205 ;;   _sound_delay->_delay2
+   206 ;;   _sound_delay->_delay4
+   207 ;;
+   208 ;; Critical Paths under _main in BANK0
+   209 ;;
+   210 ;;   None.
+   211 ;;
+   212 ;; Critical Paths under _int_rb in BANK0
+   213 ;;
+   214 ;;   None.
+   215 ;;
+   216 ;; Critical Paths under _main in BANK1
+   217 ;;
+   218 ;;   None.
+   219 ;;
+   220 ;; Critical Paths under _int_rb in BANK1
+   221 ;;
+   222 ;;   None.
+   223 ;;
+   224 ;; Critical Paths under _main in BANK3
+   225 ;;
+   226 ;;   None.
+   227 ;;
+   228 ;; Critical Paths under _int_rb in BANK3
+   229 ;;
+   230 ;;   None.
+   231 ;;
+   232 ;; Critical Paths under _main in BANK2
+   233 ;;
+   234 ;;   None.
+   235 ;;
+   236 ;; Critical Paths under _int_rb in BANK2
+   237 ;;
+   238 ;;   None.
+   239                           
+   240 ;;
+   241 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
+   242 ;;
+   243                           
+   244 ;;
+   245 ;;Call Graph Tables:
+   246 ;;
+   247 ;; ---------------------------------------------------------------------------------
+   248 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   249 ;; ---------------------------------------------------------------------------------
+   250 ;; (0) _main                                                 1     1      0       0
+   251 ;;                                              0 BANK0      1     1      0
+   252 ;; ---------------------------------------------------------------------------------
+   253 ;; Estimated maximum stack depth 0
+   254 ;; ---------------------------------------------------------------------------------
+   255 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   256 ;; ---------------------------------------------------------------------------------
+   257 ;; (1) _int_rb                                               5     5      0     360
+   258 ;;                                              5 COMMON     5     5      0
+   259 ;;                        _sound_delay
+   260 ;; ---------------------------------------------------------------------------------
+   261 ;; (2) _sound_delay                                          2     2      0     360
+   262 ;;                                              3 COMMON     2     2      0
+   263 ;;                             _delay1
+   264 ;;                             _delay3
+   265 ;;                             _delay2
+   266 ;;                             _delay4
+   267 ;; ---------------------------------------------------------------------------------
+   268 ;; (3) _delay4                                               3     3      0      60
+   269 ;;                                              0 COMMON     3     3      0
+   270 ;; ---------------------------------------------------------------------------------
+   271 ;; (3) _delay3                                               3     3      0      60
+   272 ;;                                              0 COMMON     3     3      0
+   273 ;; ---------------------------------------------------------------------------------
+   274 ;; (3) _delay2                                               3     3      0      60
+   275 ;;                                              0 COMMON     3     3      0
+   276 ;; ---------------------------------------------------------------------------------
+   277 ;; (3) _delay1                                               3     3      0      60
+   278 ;;                                              0 COMMON     3     3      0
+   279 ;; ---------------------------------------------------------------------------------
+   280 ;; Estimated maximum stack depth 3
+   281 ;; ---------------------------------------------------------------------------------
+   282                           
+   283 ;; Call Graph Graphs:
+   284                           
+   285 ;; _main (ROOT)
+   286 ;;
+   287 ;; _int_rb (ROOT)
+   288 ;;   _sound_delay
+   289 ;;     _delay1
+   290 ;;     _delay3
+   291 ;;     _delay2
+   292 ;;     _delay4
+   293 ;;
+   294                           
+   295 ;; Address spaces:
+   296                           
+   297 ;;Name               Size   Autos  Total    Cost      Usage
+   298 ;;BITCOMMON            E      0       0       0        0.0%
+   299 ;;EEDATA             100      0       0       0        0.0%
+   300 ;;NULL                 0      0       0       0        0.0%
+   301 ;;CODE                 0      0       0       0        0.0%
+   302 ;;COMMON               E      A       C       1       85.7%
+   303 ;;BITSFR0              0      0       0       1        0.0%
+   304 ;;SFR0                 0      0       0       1        0.0%
+   305 ;;BITSFR1              0      0       0       2        0.0%
+   306 ;;SFR1                 0      0       0       2        0.0%
+   307 ;;STACK                0      0       6       2        0.0%
+   308 ;;ABS                  0      0       D       3        0.0%
+   309 ;;BITBANK0            50      0       0       4        0.0%
+   310 ;;BITSFR3              0      0       0       4        0.0%
+   311 ;;SFR3                 0      0       0       4        0.0%
+   312 ;;BANK0               50      1       1       5        1.3%
+   313 ;;BITSFR2              0      0       0       5        0.0%
+   314 ;;SFR2                 0      0       0       5        0.0%
+   315 ;;BITBANK1            50      0       0       6        0.0%
+   316 ;;BANK1               50      0       0       7        0.0%
+   317 ;;BITBANK3            60      0       0       8        0.0%
+   318 ;;BANK3               60      0       0       9        0.0%
+   319 ;;BITBANK2            60      0       0      10        0.0%
+   320 ;;BANK2               60      0       0      11        0.0%
+   321 ;;DATA                 0      0      13      12        0.0%
+   322                           
+   323                           	global	_main
+   324                           psect	maintext,global,class=CODE,delta=2
+   325                           global __pmaintext
+   326  019D                     __pmaintext:
+   327                           
+   328 ;; *************** function _main *****************
+   329 ;; Defined at:
+   330 ;;		line 91 in file "E:\MPLAB_IDE\shy_3\shy_3.c"
+   331 ;; Parameters:    Size  Location     Type
+   332 ;;		None
+   333 ;; Auto vars:     Size  Location     Type
+   334 ;;		None
+   335 ;; Return value:  Size  Location     Type
+   336 ;;		None               void
+   337 ;; Registers used:
+   338 ;;		wreg, status,2, status,0
+   339 ;; Tracked objects:
+   340 ;;		On entry : 17F/0
+   341 ;;		On exit  : 0/0
+   342 ;;		Unchanged: 0/0
+   343 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   344 ;;      Params:         0       0       0       0       0
+   345 ;;      Locals:         0       0       0       0       0
+   346 ;;      Temps:          0       1       0       0       0
+   347 ;;      Totals:         0       1       0       0       0
+   348 ;;Total ram usage:        1 bytes
+   349 ;; Hardware stack levels required when called:    3
+   350 ;; This function calls:
+   351 ;;		Nothing
+   352 ;; This function is called by:
+   353 ;;		Startup code after reset
+   354 ;; This function uses a non-reentrant model
+   355 ;;
+   356                           psect	maintext
+   357                           	file	"E:\MPLAB_IDE\shy_3\shy_3.c"
+   358                           	line	91
+   359                           	global	__size_of_main
+   360  0023                     	__size_of_main	equ	__end_of_main-_main
+   361                           	
+   362  019D                     _main:	
+   363                           	opt	stack 5
+   364                           ; Regs used in _main: [wreg+status,2+status,0]
+   365                           	line	92
+   366                           	
+   367  019D                     l2844:	
+   368                           ;shy_3.c: 92: TRISD = 0;
+   369  019D  1683               	bsf	status, 5	;RP0=1, select bank1
+   370  019E  1303               	bcf	status, 6	;RP1=0, select bank1
+   371  019F  0188               	clrf	(136)^080h	;volatile
+   372                           	line	93
+   373                           ;shy_3.c: 93: PORTD = 0;
+   374  01A0  1283               	bcf	status, 5	;RP0=0, select bank0
+   375  01A1  1303               	bcf	status, 6	;RP1=0, select bank0
+   376  01A2  0188               	clrf	(8)	;volatile
+   377                           	line	94
+   378                           	
+   379  01A3                     l2846:	
+   380                           ;shy_3.c: 94: TRISB = 0XFF;
+   381  01A3  30FF               	movlw	(0FFh)
+   382  01A4  1683               	bsf	status, 5	;RP0=1, select bank1
+   383  01A5  1303               	bcf	status, 6	;RP1=0, select bank1
+   384  01A6  0086               	movwf	(134)^080h	;volatile
+   385                           	line	95
+   386                           	
+   387  01A7                     l2848:	
+   388                           ;shy_3.c: 95: nRBPU = 0;
+   389  01A7  1381               	bcf	(1039/8)^080h,(1039)&7
+   390                           	line	96
+   391                           	
+   392  01A8                     l2850:	
+   393                           ;shy_3.c: 96: INTEDG = 1;
+   394  01A8  1701               	bsf	(1038/8)^080h,(1038)&7
+   395                           	line	98
+   396                           	
+   397  01A9                     l2852:	
+   398                           ;shy_3.c: 98: ADCON1 = 7;
+   399  01A9  3007               	movlw	(07h)
+   400  01AA  009F               	movwf	(159)^080h	;volatile
+   401                           	line	99
+   402                           	
+   403  01AB                     l2854:	
+   404                           ;shy_3.c: 99: TRISE0 = 0;
+   405  01AB  1009               	bcf	(1096/8)^080h,(1096)&7
+   406                           	line	100
+   407                           	
+   408  01AC                     l2856:	
+   409                           ;shy_3.c: 100: RE0 = 0;
+   410  01AC  1283               	bcf	status, 5	;RP0=0, select bank0
+   411  01AD  1303               	bcf	status, 6	;RP1=0, select bank0
+   412  01AE  1009               	bcf	(72/8),(72)&7
+   413                           	line	102
+   414                           	
+   415  01AF                     l2858:	
+   416                           ;shy_3.c: 102: x = 1;
+   417  01AF  01FA               	clrf	(_x)
+   418  01B0  1403               	bsf	status,0
+   419  01B1  0DFA               	rlf	(_x),f
+   420                           	line	104
+   421                           	
+   422  01B2                     l2860:	
+   423                           ;shy_3.c: 104: GIE = 1;
+   424  01B2  178B               	bsf	(95/8),(95)&7
+   425                           	line	105
+   426                           	
+   427  01B3                     l2862:	
+   428                           ;shy_3.c: 105: INTE = 1;
+   429  01B3  160B               	bsf	(92/8),(92)&7
+   430                           	line	106
+   431                           	
+   432  01B4                     l2864:	
+   433                           ;shy_3.c: 106: RBIE = 1;
+   434  01B4  158B               	bsf	(91/8),(91)&7
+   435                           	line	107
+   436                           	
+   437  01B5                     l2866:	
+   438                           ;shy_3.c: 107: INTF = 0;
+   439  01B5  108B               	bcf	(89/8),(89)&7
+   440                           	line	108
+   441                           	
+   442  01B6                     l2868:	
+   443                           ;shy_3.c: 108: y = PORTB;
+   444  01B6  0806               	movf	(6),w	;volatile
+   445  01B7  00A0               	movwf	(??_main+0)+0
+   446  01B8  0820               	movf	(??_main+0)+0,w
+   447  01B9  00FB               	movwf	(_y)
+   448                           	line	109
+   449                           	
+   450  01BA                     l2870:	
+   451                           ;shy_3.c: 109: RBIF = 0;
+   452  01BA  100B               	bcf	(88/8),(88)&7
+   453  01BB  29BC               	goto	l739
+   454                           	line	111
+   455                           ;shy_3.c: 111: while (1) {
+   456                           	
+   457  01BC                     l738:	
+   458                           	line	113
+   459                           	
+   460  01BC                     l739:	
+   461                           	line	111
+   462  01BC  29BC               	goto	l739
+   463                           	
+   464  01BD                     l740:	
+   465                           	line	114
+   466                           	
+   467  01BD                     l741:	
+   468                           	global	start
+   469  01BD  120A  118A  2812   	ljmp	start
+   470                           	opt stack 0
+   471                           GLOBAL	__end_of_main
+   472  01C0                     	__end_of_main:
+   473 ;; =============== function _main ends ============
+   474                           
+   475                           	signat	_main,88
+   476                           	global	_int_rb
+   477                           psect	text165,local,class=CODE,delta=2
+   478                           global __ptext165
+   479  009E                     __ptext165:
+   480                           
+   481 ;; *************** function _int_rb *****************
+   482 ;; Defined at:
+   483 ;;		line 59 in file "E:\MPLAB_IDE\shy_3\shy_3.c"
+   484 ;; Parameters:    Size  Location     Type
+   485 ;;		None
+   486 ;; Auto vars:     Size  Location     Type
+   487 ;;		None
+   488 ;; Return value:  Size  Location     Type
+   489 ;;		None               void
+   490 ;; Registers used:
+   491 ;;		wreg, status,2, status,0, pclath, cstack
+   492 ;; Tracked objects:
+   493 ;;		On entry : 0/0
+   494 ;;		On exit  : 0/0
+   495 ;;		Unchanged: 0/0
+   496 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   497 ;;      Params:         0       0       0       0       0
+   498 ;;      Locals:         0       0       0       0       0
+   499 ;;      Temps:          5       0       0       0       0
+   500 ;;      Totals:         5       0       0       0       0
+   501 ;;Total ram usage:        5 bytes
+   502 ;; Hardware stack levels used:    1
+   503 ;; Hardware stack levels required when called:    2
+   504 ;; This function calls:
+   505 ;;		_sound_delay
+   506 ;; This function is called by:
+   507 ;;		Interrupt level 1
+   508 ;; This function uses a non-reentrant model
+   509 ;;
+   510                           psect	text165
+   511                           	file	"E:\MPLAB_IDE\shy_3\shy_3.c"
+   512                           	line	59
+   513                           	global	__size_of_int_rb
+   514  0063                     	__size_of_int_rb	equ	__end_of_int_rb-_int_rb
+   515                           	
+   516  009E                     _int_rb:	
+   517                           	opt	stack 5
+   518                           ; Regs used in _int_rb: [wreg+status,2+status,0+pclath+cstack]
+   519                           psect	intentry,class=CODE,delta=2
+   520                           global __pintentry
+   521  0004                     __pintentry:
+   522                           global interrupt_function
+   523  0004                     interrupt_function:
+   524                           	global saved_w
+   525  007E                     	saved_w	set	btemp+0
+   526  0004  00FE               	movwf	saved_w
+   527  0005  0E03               	swapf	status,w
+   528  0006  00F6               	movwf	(??_int_rb+1)
+   529  0007  0804               	movf	fsr0,w
+   530  0008  00F7               	movwf	(??_int_rb+2)
+   531  0009  080A               	movf	pclath,w
+   532  000A  00F8               	movwf	(??_int_rb+3)
+   533  000B  1283               	bcf	status, 5	;RP0=0, select bank0
+   534  000C  1303               	bcf	status, 6	;RP1=0, select bank0
+   535  000D  087F               	movf	btemp+1,w
+   536  000E  00F9               	movwf	(??_int_rb+4)
+   537  000F  120A  118A  289E   	ljmp	_int_rb
+   538                           psect	text165
+   539                           	line	60
+   540                           	
+   541  009E                     i1l1924:	
+   542                           ;shy_3.c: 60: if (INTF == 1) {
+   543  009E  1C8B               	btfss	(89/8),(89)&7
+   544  009F  28A1               	goto	u25_21
+   545  00A0  28A2               	goto	u25_20
+   546  00A1                     u25_21:
+   547  00A1  28AC               	goto	i1l1934
+   548  00A2                     u25_20:
+   549                           	line	61
+   550                           	
+   551  00A2                     i1l1926:	
+   552                           ;shy_3.c: 61: x = 0;
+   553  00A2  01FA               	clrf	(_x)
+   554                           	line	62
+   555                           	
+   556  00A3                     i1l1928:	
+   557                           ;shy_3.c: 62: PORTD = ~0X80;
+   558  00A3  307F               	movlw	(07Fh)
+   559  00A4  0088               	movwf	(8)	;volatile
+   560                           	line	63
+   561                           	
+   562  00A5                     i1l1930:	
+   563                           ;shy_3.c: 63: sound_delay();
+   564  00A5  120A  118A  2015   	fcall	_sound_delay
+              120A  118A         
+   565                           	line	64
+   566                           	
+   567  00AA                     i1l1932:	
+   568                           ;shy_3.c: 64: INTF = 0;
+   569  00AA  108B               	bcf	(89/8),(89)&7
+   570                           	line	65
+   571                           ;shy_3.c: 65: }
+   572  00AB  28F4               	goto	i1l735
+   573                           	line	66
+   574                           	
+   575  00AC                     i1l728:	
+   576                           	line	67
+   577                           	
+   578  00AC                     i1l1934:	
+   579                           ;shy_3.c: 66: else{
+   580                           ;shy_3.c: 67: if (x == 0) {
+   581  00AC  08FA               	movf	(_x),f
+   582  00AD  1D03               	skipz
+   583  00AE  28B0               	goto	u26_21
+   584  00AF  28B1               	goto	u26_20
+   585  00B0                     u26_21:
+   586  00B0  28EC               	goto	i1l1954
+   587  00B1                     u26_20:
+   588                           	line	68
+   589                           	
+   590  00B1                     i1l1936:	
+   591                           ;shy_3.c: 68: x = 1;
+   592  00B1  01FA               	clrf	(_x)
+   593  00B2  1403               	bsf	status,0
+   594  00B3  0DFA               	rlf	(_x),f
+   595                           	line	69
+   596                           	
+   597  00B4                     i1l1938:	
+   598                           ;shy_3.c: 69: y = y ^ PORTB;
+   599  00B4  087B               	movf	(_y),w
+   600  00B5  1283               	bcf	status, 5	;RP0=0, select bank0
+   601  00B6  1303               	bcf	status, 6	;RP1=0, select bank0
+   602  00B7  0606               	xorwf	(6),w	;volatile
+   603  00B8  00F5               	movwf	(??_int_rb+0)+0
+   604  00B9  0875               	movf	(??_int_rb+0)+0,w
+   605  00BA  00FB               	movwf	(_y)
+   606                           	line	70
+   607                           ;shy_3.c: 70: if (y == 0x80) {
+   608  00BB  087B               	movf	(_y),w
+   609  00BC  3A80               	xorlw	080h
+   610  00BD  1D03               	skipz
+   611  00BE  28C0               	goto	u27_21
+   612  00BF  28C1               	goto	u27_20
+   613  00C0                     u27_21:
+   614  00C0  28C3               	goto	i1l731
+   615  00C1                     u27_20:
+   616                           	line	71
+   617                           	
+   618  00C1                     i1l1940:	
+   619                           ;shy_3.c: 71: PORTD = ~0X08;
+   620  00C1  30F7               	movlw	(0F7h)
+   621  00C2  0088               	movwf	(8)	;volatile
+   622                           	line	72
+   623                           	
+   624  00C3                     i1l731:	
+   625                           	line	73
+   626                           ;shy_3.c: 72: }
+   627                           ;shy_3.c: 73: if (y == 0x40) {
+   628  00C3  087B               	movf	(_y),w
+   629  00C4  3A40               	xorlw	040h
+   630  00C5  1D03               	skipz
+   631  00C6  28C8               	goto	u28_21
+   632  00C7  28C9               	goto	u28_20
+   633  00C8                     u28_21:
+   634  00C8  28CB               	goto	i1l732
+   635  00C9                     u28_20:
+   636                           	line	74
+   637                           	
+   638  00C9                     i1l1942:	
+   639                           ;shy_3.c: 74: PORTD = ~0X04;
+   640  00C9  30FB               	movlw	(0FBh)
+   641  00CA  0088               	movwf	(8)	;volatile
+   642                           	line	75
+   643                           	
+   644  00CB                     i1l732:	
+   645                           	line	76
+   646                           ;shy_3.c: 75: }
+   647                           ;shy_3.c: 76: if (y == 0x20) {
+   648  00CB  087B               	movf	(_y),w
+   649  00CC  3A20               	xorlw	020h
+   650  00CD  1D03               	skipz
+   651  00CE  28D0               	goto	u29_21
+   652  00CF  28D1               	goto	u29_20
+   653  00D0                     u29_21:
+   654  00D0  28D3               	goto	i1l733
+   655  00D1                     u29_20:
+   656                           	line	77
+   657                           	
+   658  00D1                     i1l1944:	
+   659                           ;shy_3.c: 77: PORTD = ~0X02;
+   660  00D1  30FD               	movlw	(0FDh)
+   661  00D2  0088               	movwf	(8)	;volatile
+   662                           	line	78
+   663                           	
+   664  00D3                     i1l733:	
+   665                           	line	79
+   666                           ;shy_3.c: 78: }
+   667                           ;shy_3.c: 79: if (y == 0x10) {
+   668  00D3  087B               	movf	(_y),w
+   669  00D4  3A10               	xorlw	010h
+   670  00D5  1D03               	skipz
+   671  00D6  28D8               	goto	u30_21
+   672  00D7  28D9               	goto	u30_20
+   673  00D8                     u30_21:
+   674  00D8  28DC               	goto	i1l1948
+   675  00D9                     u30_20:
+   676                           	line	80
+   677                           	
+   678  00D9                     i1l1946:	
+   679                           ;shy_3.c: 80: PORTD = ~0X01;
+   680  00D9  30FE               	movlw	(0FEh)
+   681  00DA  0088               	movwf	(8)	;volatile
+   682  00DB  28DC               	goto	i1l1948
+   683                           	line	81
+   684                           	
+   685  00DC                     i1l734:	
+   686                           	line	82
+   687                           	
+   688  00DC                     i1l1948:	
+   689                           ;shy_3.c: 81: }
+   690                           ;shy_3.c: 82: sound_delay();sound_delay();sound_delay();
+   691  00DC  120A  118A  2015   	fcall	_sound_delay
+              120A  118A         
+   692                           	
+   693  00E1                     i1l1950:	
+   694  00E1  120A  118A  2015   	fcall	_sound_delay
+              120A  118A         
+   695                           	
+   696  00E6                     i1l1952:	
+   697  00E6  120A  118A  2015   	fcall	_sound_delay
+              120A  118A         
+   698  00EB  28EC               	goto	i1l1954
+   699                           	line	83
+   700                           	
+   701  00EC                     i1l730:	
+   702                           	line	85
+   703                           	
+   704  00EC                     i1l1954:	
+   705                           ;shy_3.c: 83: }
+   706                           ;shy_3.c: 85: y = PORTB;
+   707  00EC  1283               	bcf	status, 5	;RP0=0, select bank0
+   708  00ED  1303               	bcf	status, 6	;RP1=0, select bank0
+   709  00EE  0806               	movf	(6),w	;volatile
+   710  00EF  00F5               	movwf	(??_int_rb+0)+0
+   711  00F0  0875               	movf	(??_int_rb+0)+0,w
+   712  00F1  00FB               	movwf	(_y)
+   713                           	line	86
+   714                           	
+   715  00F2                     i1l1956:	
+   716                           ;shy_3.c: 86: RBIF = 0;
+   717  00F2  100B               	bcf	(88/8),(88)&7
+   718  00F3  28F4               	goto	i1l735
+   719                           	line	87
+   720                           	
+   721  00F4                     i1l729:	
+   722                           	line	88
+   723                           	
+   724  00F4                     i1l735:	
+   725  00F4  0879               	movf	(??_int_rb+4),w
+   726  00F5  1283               	bcf	status, 5	;RP0=0, select bank0
+   727  00F6  1303               	bcf	status, 6	;RP1=0, select bank0
+   728  00F7  00FF               	movwf	btemp+1
+   729  00F8  0878               	movf	(??_int_rb+3),w
+   730  00F9  008A               	movwf	pclath
+   731  00FA  0877               	movf	(??_int_rb+2),w
+   732  00FB  0084               	movwf	fsr0
+   733  00FC  0E76               	swapf	(??_int_rb+1)^0FFFFFF80h,w
+   734  00FD  0083               	movwf	status
+   735  00FE  0EFE               	swapf	saved_w,f
+   736  00FF  0E7E               	swapf	saved_w,w
+   737  0100  0009               	retfie
+   738                           	opt stack 0
+   739                           GLOBAL	__end_of_int_rb
+   740  0101                     	__end_of_int_rb:
+   741 ;; =============== function _int_rb ends ============
+   742                           
+   743                           	signat	_int_rb,88
+   744                           	global	_sound_delay
+   745                           psect	text166,local,class=CODE,delta=2
+   746                           global __ptext166
+   747  0015                     __ptext166:
+   748                           
+   749 ;; *************** function _sound_delay *****************
+   750 ;; Defined at:
+   751 ;;		line 38 in file "E:\MPLAB_IDE\shy_3\shy_3.c"
+   752 ;; Parameters:    Size  Location     Type
+   753 ;;		None
+   754 ;; Auto vars:     Size  Location     Type
+   755 ;;  i               2    3[COMMON] unsigned int 
+   756 ;; Return value:  Size  Location     Type
+   757 ;;		None               void
+   758 ;; Registers used:
+   759 ;;		wreg, status,2, status,0, pclath, cstack
+   760 ;; Tracked objects:
+   761 ;;		On entry : 0/0
+   762 ;;		On exit  : 0/0
+   763 ;;		Unchanged: 0/0
+   764 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   765 ;;      Params:         0       0       0       0       0
+   766 ;;      Locals:         2       0       0       0       0
+   767 ;;      Temps:          0       0       0       0       0
+   768 ;;      Totals:         2       0       0       0       0
+   769 ;;Total ram usage:        2 bytes
+   770 ;; Hardware stack levels used:    1
+   771 ;; Hardware stack levels required when called:    1
+   772 ;; This function calls:
+   773 ;;		_delay1
+   774 ;;		_delay3
+   775 ;;		_delay2
+   776 ;;		_delay4
+   777 ;; This function is called by:
+   778 ;;		_int_rb
+   779 ;; This function uses a non-reentrant model
+   780 ;;
+   781                           psect	text166
+   782                           	file	"E:\MPLAB_IDE\shy_3\shy_3.c"
+   783                           	line	38
+   784                           	global	__size_of_sound_delay
+   785  0089                     	__size_of_sound_delay	equ	__end_of_sound_delay-_sound_delay
+   786                           	
+   787  0015                     _sound_delay:	
+   788                           	opt	stack 5
+   789                           ; Regs used in _sound_delay: [wreg+status,2+status,0+pclath+cstack]
+   790                           	line	40
+   791                           	
+   792  0015                     i1l1868:	
+   793                           ;shy_3.c: 39: unsigned int i;
+   794                           ;shy_3.c: 40: for (i = 300; i > 0; i--) {
+   795  0015  302C               	movlw	low(012Ch)
+   796  0016  00F3               	movwf	(sound_delay@i)
+   797  0017  3001               	movlw	high(012Ch)
+   798  0018  00F4               	movwf	((sound_delay@i))+1
+   799                           	
+   800  0019                     i1l1870:	
+   801  0019  0874               	movf	((sound_delay@i+1)),w
+   802  001A  0473               	iorwf	((sound_delay@i)),w
+   803  001B  1D03               	skipz
+   804  001C  281E               	goto	u17_21
+   805  001D  281F               	goto	u17_20
+   806  001E                     u17_21:
+   807  001E  2821               	goto	i1l1874
+   808  001F                     u17_20:
+   809  001F  2837               	goto	i1l1882
+   810                           	
+   811  0020                     i1l1872:	
+   812  0020  2837               	goto	i1l1882
+   813                           	
+   814  0021                     i1l717:	
+   815                           	line	41
+   816                           	
+   817  0021                     i1l1874:	
+   818                           ;shy_3.c: 41: RE0 = !RE0;
+   819  0021  3001               	movlw	1<<((72)&7)
+   820  0022  1283               	bcf	status, 5	;RP0=0, select bank0
+   821  0023  1303               	bcf	status, 6	;RP1=0, select bank0
+   822  0024  0689               	xorwf	((72)/8),f
+   823                           	line	42
+   824                           	
+   825  0025                     i1l1876:	
+   826                           ;shy_3.c: 42: delay1();
+   827  0025  120A  118A  2176   	fcall	_delay1
+              120A  118A         
+   828                           	line	40
+   829                           	
+   830  002A                     i1l1878:	
+   831  002A  3001               	movlw	low(01h)
+   832  002B  02F3               	subwf	(sound_delay@i),f
+   833  002C  3000               	movlw	high(01h)
+   834  002D  1C03               	skipc
+   835  002E  03F4               	decf	(sound_delay@i+1),f
+   836  002F  02F4               	subwf	(sound_delay@i+1),f
+   837                           	
+   838  0030                     i1l1880:	
+   839  0030  0874               	movf	((sound_delay@i+1)),w
+   840  0031  0473               	iorwf	((sound_delay@i)),w
+   841  0032  1D03               	skipz
+   842  0033  2835               	goto	u18_21
+   843  0034  2836               	goto	u18_20
+   844  0035                     u18_21:
+   845  0035  2821               	goto	i1l1874
+   846  0036                     u18_20:
+   847  0036  2837               	goto	i1l1882
+   848                           	
+   849  0037                     i1l718:	
+   850                           	line	44
+   851                           	
+   852  0037                     i1l1882:	
+   853                           ;shy_3.c: 43: }
+   854                           ;shy_3.c: 44: for (i = 300; i > 0; i--) {
+   855  0037  302C               	movlw	low(012Ch)
+   856  0038  00F3               	movwf	(sound_delay@i)
+   857  0039  3001               	movlw	high(012Ch)
+   858  003A  00F4               	movwf	((sound_delay@i))+1
+   859                           	
+   860  003B                     i1l1884:	
+   861  003B  0874               	movf	((sound_delay@i+1)),w
+   862  003C  0473               	iorwf	((sound_delay@i)),w
+   863  003D  1D03               	skipz
+   864  003E  2840               	goto	u19_21
+   865  003F  2841               	goto	u19_20
+   866  0040                     u19_21:
+   867  0040  2843               	goto	i1l1888
+   868  0041                     u19_20:
+   869  0041  2859               	goto	i1l1896
+   870                           	
+   871  0042                     i1l1886:	
+   872  0042  2859               	goto	i1l1896
+   873                           	
+   874  0043                     i1l719:	
+   875                           	line	45
+   876                           	
+   877  0043                     i1l1888:	
+   878                           ;shy_3.c: 45: RE0 = !RE0;
+   879  0043  3001               	movlw	1<<((72)&7)
+   880  0044  1283               	bcf	status, 5	;RP0=0, select bank0
+   881  0045  1303               	bcf	status, 6	;RP1=0, select bank0
+   882  0046  0689               	xorwf	((72)/8),f
+   883                           	line	46
+   884                           	
+   885  0047                     i1l1890:	
+   886                           ;shy_3.c: 46: delay3();
+   887  0047  120A  118A  2128   	fcall	_delay3
+              120A  118A         
+   888                           	line	44
+   889                           	
+   890  004C                     i1l1892:	
+   891  004C  3001               	movlw	low(01h)
+   892  004D  02F3               	subwf	(sound_delay@i),f
+   893  004E  3000               	movlw	high(01h)
+   894  004F  1C03               	skipc
+   895  0050  03F4               	decf	(sound_delay@i+1),f
+   896  0051  02F4               	subwf	(sound_delay@i+1),f
+   897                           	
+   898  0052                     i1l1894:	
+   899  0052  0874               	movf	((sound_delay@i+1)),w
+   900  0053  0473               	iorwf	((sound_delay@i)),w
+   901  0054  1D03               	skipz
+   902  0055  2857               	goto	u20_21
+   903  0056  2858               	goto	u20_20
+   904  0057                     u20_21:
+   905  0057  2843               	goto	i1l1888
+   906  0058                     u20_20:
+   907  0058  2859               	goto	i1l1896
+   908                           	
+   909  0059                     i1l720:	
+   910                           	line	48
+   911                           	
+   912  0059                     i1l1896:	
+   913                           ;shy_3.c: 47: }
+   914                           ;shy_3.c: 48: for (i = 100; i > 0; i--) {
+   915  0059  3064               	movlw	low(064h)
+   916  005A  00F3               	movwf	(sound_delay@i)
+   917  005B  3000               	movlw	high(064h)
+   918  005C  00F4               	movwf	((sound_delay@i))+1
+   919                           	
+   920  005D                     i1l1898:	
+   921  005D  0874               	movf	((sound_delay@i+1)),w
+   922  005E  0473               	iorwf	((sound_delay@i)),w
+   923  005F  1D03               	skipz
+   924  0060  2862               	goto	u21_21
+   925  0061  2863               	goto	u21_20
+   926  0062                     u21_21:
+   927  0062  2865               	goto	i1l1902
+   928  0063                     u21_20:
+   929  0063  287B               	goto	i1l1910
+   930                           	
+   931  0064                     i1l1900:	
+   932  0064  287B               	goto	i1l1910
+   933                           	
+   934  0065                     i1l721:	
+   935                           	line	49
+   936                           	
+   937  0065                     i1l1902:	
+   938                           ;shy_3.c: 49: RE0 = !RE0;
+   939  0065  3001               	movlw	1<<((72)&7)
+   940  0066  1283               	bcf	status, 5	;RP0=0, select bank0
+   941  0067  1303               	bcf	status, 6	;RP1=0, select bank0
+   942  0068  0689               	xorwf	((72)/8),f
+   943                           	line	50
+   944                           	
+   945  0069                     i1l1904:	
+   946                           ;shy_3.c: 50: delay2();
+   947  0069  120A  118A  214F   	fcall	_delay2
+              120A  118A         
+   948                           	line	48
+   949                           	
+   950  006E                     i1l1906:	
+   951  006E  3001               	movlw	low(01h)
+   952  006F  02F3               	subwf	(sound_delay@i),f
+   953  0070  3000               	movlw	high(01h)
+   954  0071  1C03               	skipc
+   955  0072  03F4               	decf	(sound_delay@i+1),f
+   956  0073  02F4               	subwf	(sound_delay@i+1),f
+   957                           	
+   958  0074                     i1l1908:	
+   959  0074  0874               	movf	((sound_delay@i+1)),w
+   960  0075  0473               	iorwf	((sound_delay@i)),w
+   961  0076  1D03               	skipz
+   962  0077  2879               	goto	u22_21
+   963  0078  287A               	goto	u22_20
+   964  0079                     u22_21:
+   965  0079  2865               	goto	i1l1902
+   966  007A                     u22_20:
+   967  007A  287B               	goto	i1l1910
+   968                           	
+   969  007B                     i1l722:	
+   970                           	line	52
+   971                           	
+   972  007B                     i1l1910:	
+   973                           ;shy_3.c: 51: }
+   974                           ;shy_3.c: 52: for (i = 100; i > 0; i--) {
+   975  007B  3064               	movlw	low(064h)
+   976  007C  00F3               	movwf	(sound_delay@i)
+   977  007D  3000               	movlw	high(064h)
+   978  007E  00F4               	movwf	((sound_delay@i))+1
+   979                           	
+   980  007F                     i1l1912:	
+   981  007F  0874               	movf	((sound_delay@i+1)),w
+   982  0080  0473               	iorwf	((sound_delay@i)),w
+   983  0081  1D03               	skipz
+   984  0082  2884               	goto	u23_21
+   985  0083  2885               	goto	u23_20
+   986  0084                     u23_21:
+   987  0084  2887               	goto	i1l1916
+   988  0085                     u23_20:
+   989  0085  289D               	goto	i1l725
+   990                           	
+   991  0086                     i1l1914:	
+   992  0086  289D               	goto	i1l725
+   993                           	
+   994  0087                     i1l723:	
+   995                           	line	53
+   996                           	
+   997  0087                     i1l1916:	
+   998                           ;shy_3.c: 53: RE0 = !RE0;
+   999  0087  3001               	movlw	1<<((72)&7)
+  1000  0088  1283               	bcf	status, 5	;RP0=0, select bank0
+  1001  0089  1303               	bcf	status, 6	;RP1=0, select bank0
+  1002  008A  0689               	xorwf	((72)/8),f
+  1003                           	line	54
+  1004                           	
+  1005  008B                     i1l1918:	
+  1006                           ;shy_3.c: 54: delay4();
+  1007  008B  120A  118A  2101   	fcall	_delay4
+              120A  118A         
+  1008                           	line	52
+  1009                           	
+  1010  0090                     i1l1920:	
+  1011  0090  3001               	movlw	low(01h)
+  1012  0091  02F3               	subwf	(sound_delay@i),f
+  1013  0092  3000               	movlw	high(01h)
+  1014  0093  1C03               	skipc
+  1015  0094  03F4               	decf	(sound_delay@i+1),f
+  1016  0095  02F4               	subwf	(sound_delay@i+1),f
+  1017                           	
+  1018  0096                     i1l1922:	
+  1019  0096  0874               	movf	((sound_delay@i+1)),w
+  1020  0097  0473               	iorwf	((sound_delay@i)),w
+  1021  0098  1D03               	skipz
+  1022  0099  289B               	goto	u24_21
+  1023  009A  289C               	goto	u24_20
+  1024  009B                     u24_21:
+  1025  009B  2887               	goto	i1l1916
+  1026  009C                     u24_20:
+  1027  009C  289D               	goto	i1l725
+  1028                           	
+  1029  009D                     i1l724:	
+  1030                           	line	56
+  1031                           	
+  1032  009D                     i1l725:	
+  1033  009D  0008               	return
+  1034                           	opt stack 0
+  1035                           GLOBAL	__end_of_sound_delay
+  1036  009E                     	__end_of_sound_delay:
+  1037 ;; =============== function _sound_delay ends ============
+  1038                           
+  1039                           	signat	_sound_delay,88
+  1040                           	global	_delay4
+  1041                           psect	text167,local,class=CODE,delta=2
+  1042                           global __ptext167
+  1043  0101                     __ptext167:
+  1044                           
+  1045 ;; *************** function _delay4 *****************
+  1046 ;; Defined at:
+  1047 ;;		line 30 in file "E:\MPLAB_IDE\shy_3\shy_3.c"
+  1048 ;; Parameters:    Size  Location     Type
+  1049 ;;		None
+  1050 ;; Auto vars:     Size  Location     Type
+  1051 ;;  i2              1    2[COMMON] unsigned char 
+  1052 ;;  i1              1    1[COMMON] unsigned char 
+  1053 ;; Return value:  Size  Location     Type
+  1054 ;;		None               void
+  1055 ;; Registers used:
+  1056 ;;		wreg, status,2, status,0
+  1057 ;; Tracked objects:
+  1058 ;;		On entry : 0/0
+  1059 ;;		On exit  : 0/0
+  1060 ;;		Unchanged: 0/0
+  1061 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1062 ;;      Params:         0       0       0       0       0
+  1063 ;;      Locals:         2       0       0       0       0
+  1064 ;;      Temps:          1       0       0       0       0
+  1065 ;;      Totals:         3       0       0       0       0
+  1066 ;;Total ram usage:        3 bytes
+  1067 ;; Hardware stack levels used:    1
+  1068 ;; This function calls:
+  1069 ;;		Nothing
+  1070 ;; This function is called by:
+  1071 ;;		_sound_delay
+  1072 ;; This function uses a non-reentrant model
+  1073 ;;
+  1074                           psect	text167
+  1075                           	file	"E:\MPLAB_IDE\shy_3\shy_3.c"
+  1076                           	line	30
+  1077                           	global	__size_of_delay4
+  1078  0027                     	__size_of_delay4	equ	__end_of_delay4-_delay4
+  1079                           	
+  1080  0101                     _delay4:	
+  1081                           	opt	stack 5
+  1082                           ; Regs used in _delay4: [wreg+status,2+status,0]
+  1083                           	line	32
+  1084                           	
+  1085  0101                     i1l1848:	
+  1086                           ;shy_3.c: 31: char i1, i2;
+  1087                           ;shy_3.c: 32: for (i1 = 11; i1 > 0; i1--) {
+  1088  0101  300B               	movlw	(0Bh)
+  1089  0102  00F0               	movwf	(??_delay4+0)+0
+  1090  0103  0870               	movf	(??_delay4+0)+0,w
+  1091  0104  00F1               	movwf	(delay4@i1)
+  1092                           	
+  1093  0105                     i1l1850:	
+  1094  0105  08F1               	movf	(delay4@i1),f
+  1095  0106  1D03               	skipz
+  1096  0107  2909               	goto	u13_21
+  1097  0108  290A               	goto	u13_20
+  1098  0109                     u13_21:
+  1099  0109  290C               	goto	i1l1854
+  1100  010A                     u13_20:
+  1101  010A  2927               	goto	i1l714
+  1102                           	
+  1103  010B                     i1l1852:	
+  1104  010B  2927               	goto	i1l714
+  1105                           	
+  1106  010C                     i1l710:	
+  1107                           	line	33
+  1108                           	
+  1109  010C                     i1l1854:	
+  1110                           ;shy_3.c: 33: for (i2 = 0x19; i2 > 0; i2--);
+  1111  010C  3019               	movlw	(019h)
+  1112  010D  00F0               	movwf	(??_delay4+0)+0
+  1113  010E  0870               	movf	(??_delay4+0)+0,w
+  1114  010F  00F2               	movwf	(delay4@i2)
+  1115                           	
+  1116  0110                     i1l1856:	
+  1117  0110  08F2               	movf	(delay4@i2),f
+  1118  0111  1D03               	skipz
+  1119  0112  2914               	goto	u14_21
+  1120  0113  2915               	goto	u14_20
+  1121  0114                     u14_21:
+  1122  0114  2917               	goto	i1l1860
+  1123  0115                     u14_20:
+  1124  0115  291F               	goto	i1l1864
+  1125                           	
+  1126  0116                     i1l1858:	
+  1127  0116  291F               	goto	i1l1864
+  1128                           	
+  1129  0117                     i1l712:	
+  1130                           	
+  1131  0117                     i1l1860:	
+  1132  0117  3001               	movlw	low(01h)
+  1133  0118  02F2               	subwf	(delay4@i2),f
+  1134                           	
+  1135  0119                     i1l1862:	
+  1136  0119  08F2               	movf	(delay4@i2),f
+  1137  011A  1D03               	skipz
+  1138  011B  291D               	goto	u15_21
+  1139  011C  291E               	goto	u15_20
+  1140  011D                     u15_21:
+  1141  011D  2917               	goto	i1l1860
+  1142  011E                     u15_20:
+  1143  011E  291F               	goto	i1l1864
+  1144                           	
+  1145  011F                     i1l713:	
+  1146                           	line	32
+  1147                           	
+  1148  011F                     i1l1864:	
+  1149  011F  3001               	movlw	low(01h)
+  1150  0120  02F1               	subwf	(delay4@i1),f
+  1151                           	
+  1152  0121                     i1l1866:	
+  1153  0121  08F1               	movf	(delay4@i1),f
+  1154  0122  1D03               	skipz
+  1155  0123  2925               	goto	u16_21
+  1156  0124  2926               	goto	u16_20
+  1157  0125                     u16_21:
+  1158  0125  290C               	goto	i1l1854
+  1159  0126                     u16_20:
+  1160  0126  2927               	goto	i1l714
+  1161                           	
+  1162  0127                     i1l711:	
+  1163                           	line	35
+  1164                           	
+  1165  0127                     i1l714:	
+  1166  0127  0008               	return
+  1167                           	opt stack 0
+  1168                           GLOBAL	__end_of_delay4
+  1169  0128                     	__end_of_delay4:
+  1170 ;; =============== function _delay4 ends ============
+  1171                           
+  1172                           	signat	_delay4,88
+  1173                           	global	_delay3
+  1174                           psect	text168,local,class=CODE,delta=2
+  1175                           global __ptext168
+  1176  0128                     __ptext168:
+  1177                           
+  1178 ;; *************** function _delay3 *****************
+  1179 ;; Defined at:
+  1180 ;;		line 22 in file "E:\MPLAB_IDE\shy_3\shy_3.c"
+  1181 ;; Parameters:    Size  Location     Type
+  1182 ;;		None
+  1183 ;; Auto vars:     Size  Location     Type
+  1184 ;;  i2              1    2[COMMON] unsigned char 
+  1185 ;;  i1              1    1[COMMON] unsigned char 
+  1186 ;; Return value:  Size  Location     Type
+  1187 ;;		None               void
+  1188 ;; Registers used:
+  1189 ;;		wreg, status,2, status,0
+  1190 ;; Tracked objects:
+  1191 ;;		On entry : 0/0
+  1192 ;;		On exit  : 0/0
+  1193 ;;		Unchanged: 0/0
+  1194 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1195 ;;      Params:         0       0       0       0       0
+  1196 ;;      Locals:         2       0       0       0       0
+  1197 ;;      Temps:          1       0       0       0       0
+  1198 ;;      Totals:         3       0       0       0       0
+  1199 ;;Total ram usage:        3 bytes
+  1200 ;; Hardware stack levels used:    1
+  1201 ;; This function calls:
+  1202 ;;		Nothing
+  1203 ;; This function is called by:
+  1204 ;;		_sound_delay
+  1205 ;; This function uses a non-reentrant model
+  1206 ;;
+  1207                           psect	text168
+  1208                           	file	"E:\MPLAB_IDE\shy_3\shy_3.c"
+  1209                           	line	22
+  1210                           	global	__size_of_delay3
+  1211  0027                     	__size_of_delay3	equ	__end_of_delay3-_delay3
+  1212                           	
+  1213  0128                     _delay3:	
+  1214                           	opt	stack 5
+  1215                           ; Regs used in _delay3: [wreg+status,2+status,0]
+  1216                           	line	24
+  1217                           	
+  1218  0128                     i1l1828:	
+  1219                           ;shy_3.c: 23: char i1, i2;
+  1220                           ;shy_3.c: 24: for (i1 = 7; i1 > 0; i1--) {
+  1221  0128  3007               	movlw	(07h)
+  1222  0129  00F0               	movwf	(??_delay3+0)+0
+  1223  012A  0870               	movf	(??_delay3+0)+0,w
+  1224  012B  00F1               	movwf	(delay3@i1)
+  1225                           	
+  1226  012C                     i1l1830:	
+  1227  012C  08F1               	movf	(delay3@i1),f
+  1228  012D  1D03               	skipz
+  1229  012E  2930               	goto	u9_21
+  1230  012F  2931               	goto	u9_20
+  1231  0130                     u9_21:
+  1232  0130  2933               	goto	i1l1834
+  1233  0131                     u9_20:
+  1234  0131  294E               	goto	i1l707
+  1235                           	
+  1236  0132                     i1l1832:	
+  1237  0132  294E               	goto	i1l707
+  1238                           	
+  1239  0133                     i1l703:	
+  1240                           	line	25
+  1241                           	
+  1242  0133                     i1l1834:	
+  1243                           ;shy_3.c: 25: for (i2 = 0x19; i2 > 0; i2--);
+  1244  0133  3019               	movlw	(019h)
+  1245  0134  00F0               	movwf	(??_delay3+0)+0
+  1246  0135  0870               	movf	(??_delay3+0)+0,w
+  1247  0136  00F2               	movwf	(delay3@i2)
+  1248                           	
+  1249  0137                     i1l1836:	
+  1250  0137  08F2               	movf	(delay3@i2),f
+  1251  0138  1D03               	skipz
+  1252  0139  293B               	goto	u10_21
+  1253  013A  293C               	goto	u10_20
+  1254  013B                     u10_21:
+  1255  013B  293E               	goto	i1l1840
+  1256  013C                     u10_20:
+  1257  013C  2946               	goto	i1l1844
+  1258                           	
+  1259  013D                     i1l1838:	
+  1260  013D  2946               	goto	i1l1844
+  1261                           	
+  1262  013E                     i1l705:	
+  1263                           	
+  1264  013E                     i1l1840:	
+  1265  013E  3001               	movlw	low(01h)
+  1266  013F  02F2               	subwf	(delay3@i2),f
+  1267                           	
+  1268  0140                     i1l1842:	
+  1269  0140  08F2               	movf	(delay3@i2),f
+  1270  0141  1D03               	skipz
+  1271  0142  2944               	goto	u11_21
+  1272  0143  2945               	goto	u11_20
+  1273  0144                     u11_21:
+  1274  0144  293E               	goto	i1l1840
+  1275  0145                     u11_20:
+  1276  0145  2946               	goto	i1l1844
+  1277                           	
+  1278  0146                     i1l706:	
+  1279                           	line	24
+  1280                           	
+  1281  0146                     i1l1844:	
+  1282  0146  3001               	movlw	low(01h)
+  1283  0147  02F1               	subwf	(delay3@i1),f
+  1284                           	
+  1285  0148                     i1l1846:	
+  1286  0148  08F1               	movf	(delay3@i1),f
+  1287  0149  1D03               	skipz
+  1288  014A  294C               	goto	u12_21
+  1289  014B  294D               	goto	u12_20
+  1290  014C                     u12_21:
+  1291  014C  2933               	goto	i1l1834
+  1292  014D                     u12_20:
+  1293  014D  294E               	goto	i1l707
+  1294                           	
+  1295  014E                     i1l704:	
+  1296                           	line	27
+  1297                           	
+  1298  014E                     i1l707:	
+  1299  014E  0008               	return
+  1300                           	opt stack 0
+  1301                           GLOBAL	__end_of_delay3
+  1302  014F                     	__end_of_delay3:
+  1303 ;; =============== function _delay3 ends ============
+  1304                           
+  1305                           	signat	_delay3,88
+  1306                           	global	_delay2
+  1307                           psect	text169,local,class=CODE,delta=2
+  1308                           global __ptext169
+  1309  014F                     __ptext169:
+  1310                           
+  1311 ;; *************** function _delay2 *****************
+  1312 ;; Defined at:
+  1313 ;;		line 14 in file "E:\MPLAB_IDE\shy_3\shy_3.c"
+  1314 ;; Parameters:    Size  Location     Type
+  1315 ;;		None
+  1316 ;; Auto vars:     Size  Location     Type
+  1317 ;;  i2              1    2[COMMON] unsigned char 
+  1318 ;;  i1              1    1[COMMON] unsigned char 
+  1319 ;; Return value:  Size  Location     Type
+  1320 ;;		None               void
+  1321 ;; Registers used:
+  1322 ;;		wreg, status,2, status,0
+  1323 ;; Tracked objects:
+  1324 ;;		On entry : 0/0
+  1325 ;;		On exit  : 0/0
+  1326 ;;		Unchanged: 0/0
+  1327 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1328 ;;      Params:         0       0       0       0       0
+  1329 ;;      Locals:         2       0       0       0       0
+  1330 ;;      Temps:          1       0       0       0       0
+  1331 ;;      Totals:         3       0       0       0       0
+  1332 ;;Total ram usage:        3 bytes
+  1333 ;; Hardware stack levels used:    1
+  1334 ;; This function calls:
+  1335 ;;		Nothing
+  1336 ;; This function is called by:
+  1337 ;;		_sound_delay
+  1338 ;; This function uses a non-reentrant model
+  1339 ;;
+  1340                           psect	text169
+  1341                           	file	"E:\MPLAB_IDE\shy_3\shy_3.c"
+  1342                           	line	14
+  1343                           	global	__size_of_delay2
+  1344  0027                     	__size_of_delay2	equ	__end_of_delay2-_delay2
+  1345                           	
+  1346  014F                     _delay2:	
+  1347                           	opt	stack 5
+  1348                           ; Regs used in _delay2: [wreg+status,2+status,0]
+  1349                           	line	16
+  1350                           	
+  1351  014F                     i1l1808:	
+  1352                           ;shy_3.c: 15: char i1, i2;
+  1353                           ;shy_3.c: 16: for (i1 = 15; i1 > 0; i1--) {
+  1354  014F  300F               	movlw	(0Fh)
+  1355  0150  00F0               	movwf	(??_delay2+0)+0
+  1356  0151  0870               	movf	(??_delay2+0)+0,w
+  1357  0152  00F1               	movwf	(delay2@i1)
+  1358                           	
+  1359  0153                     i1l1810:	
+  1360  0153  08F1               	movf	(delay2@i1),f
+  1361  0154  1D03               	skipz
+  1362  0155  2957               	goto	u5_21
+  1363  0156  2958               	goto	u5_20
+  1364  0157                     u5_21:
+  1365  0157  295A               	goto	i1l1814
+  1366  0158                     u5_20:
+  1367  0158  2975               	goto	i1l700
+  1368                           	
+  1369  0159                     i1l1812:	
+  1370  0159  2975               	goto	i1l700
+  1371                           	
+  1372  015A                     i1l696:	
+  1373                           	line	17
+  1374                           	
+  1375  015A                     i1l1814:	
+  1376                           ;shy_3.c: 17: for (i2 = 0x19; i2 > 0; i2--);
+  1377  015A  3019               	movlw	(019h)
+  1378  015B  00F0               	movwf	(??_delay2+0)+0
+  1379  015C  0870               	movf	(??_delay2+0)+0,w
+  1380  015D  00F2               	movwf	(delay2@i2)
+  1381                           	
+  1382  015E                     i1l1816:	
+  1383  015E  08F2               	movf	(delay2@i2),f
+  1384  015F  1D03               	skipz
+  1385  0160  2962               	goto	u6_21
+  1386  0161  2963               	goto	u6_20
+  1387  0162                     u6_21:
+  1388  0162  2965               	goto	i1l1820
+  1389  0163                     u6_20:
+  1390  0163  296D               	goto	i1l1824
+  1391                           	
+  1392  0164                     i1l1818:	
+  1393  0164  296D               	goto	i1l1824
+  1394                           	
+  1395  0165                     i1l698:	
+  1396                           	
+  1397  0165                     i1l1820:	
+  1398  0165  3001               	movlw	low(01h)
+  1399  0166  02F2               	subwf	(delay2@i2),f
+  1400                           	
+  1401  0167                     i1l1822:	
+  1402  0167  08F2               	movf	(delay2@i2),f
+  1403  0168  1D03               	skipz
+  1404  0169  296B               	goto	u7_21
+  1405  016A  296C               	goto	u7_20
+  1406  016B                     u7_21:
+  1407  016B  2965               	goto	i1l1820
+  1408  016C                     u7_20:
+  1409  016C  296D               	goto	i1l1824
+  1410                           	
+  1411  016D                     i1l699:	
+  1412                           	line	16
+  1413                           	
+  1414  016D                     i1l1824:	
+  1415  016D  3001               	movlw	low(01h)
+  1416  016E  02F1               	subwf	(delay2@i1),f
+  1417                           	
+  1418  016F                     i1l1826:	
+  1419  016F  08F1               	movf	(delay2@i1),f
+  1420  0170  1D03               	skipz
+  1421  0171  2973               	goto	u8_21
+  1422  0172  2974               	goto	u8_20
+  1423  0173                     u8_21:
+  1424  0173  295A               	goto	i1l1814
+  1425  0174                     u8_20:
+  1426  0174  2975               	goto	i1l700
+  1427                           	
+  1428  0175                     i1l697:	
+  1429                           	line	19
+  1430                           	
+  1431  0175                     i1l700:	
+  1432  0175  0008               	return
+  1433                           	opt stack 0
+  1434                           GLOBAL	__end_of_delay2
+  1435  0176                     	__end_of_delay2:
+  1436 ;; =============== function _delay2 ends ============
+  1437                           
+  1438                           	signat	_delay2,88
+  1439                           	global	_delay1
+  1440                           psect	text170,local,class=CODE,delta=2
+  1441                           global __ptext170
+  1442  0176                     __ptext170:
+  1443                           
+  1444 ;; *************** function _delay1 *****************
+  1445 ;; Defined at:
+  1446 ;;		line 6 in file "E:\MPLAB_IDE\shy_3\shy_3.c"
+  1447 ;; Parameters:    Size  Location     Type
+  1448 ;;		None
+  1449 ;; Auto vars:     Size  Location     Type
+  1450 ;;  i2              1    2[COMMON] unsigned char 
+  1451 ;;  i1              1    1[COMMON] unsigned char 
+  1452 ;; Return value:  Size  Location     Type
+  1453 ;;		None               void
+  1454 ;; Registers used:
+  1455 ;;		wreg, status,2, status,0
+  1456 ;; Tracked objects:
+  1457 ;;		On entry : 0/0
+  1458 ;;		On exit  : 0/0
+  1459 ;;		Unchanged: 0/0
+  1460 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1461 ;;      Params:         0       0       0       0       0
+  1462 ;;      Locals:         2       0       0       0       0
+  1463 ;;      Temps:          1       0       0       0       0
+  1464 ;;      Totals:         3       0       0       0       0
+  1465 ;;Total ram usage:        3 bytes
+  1466 ;; Hardware stack levels used:    1
+  1467 ;; This function calls:
+  1468 ;;		Nothing
+  1469 ;; This function is called by:
+  1470 ;;		_sound_delay
+  1471 ;; This function uses a non-reentrant model
+  1472 ;;
+  1473                           psect	text170
+  1474                           	file	"E:\MPLAB_IDE\shy_3\shy_3.c"
+  1475                           	line	6
+  1476                           	global	__size_of_delay1
+  1477  0027                     	__size_of_delay1	equ	__end_of_delay1-_delay1
+  1478                           	
+  1479  0176                     _delay1:	
+  1480                           	opt	stack 5
+  1481                           ; Regs used in _delay1: [wreg+status,2+status,0]
+  1482                           	line	8
+  1483                           	
+  1484  0176                     i1l1788:	
+  1485                           ;shy_3.c: 7: char i1, i2;
+  1486                           ;shy_3.c: 8: for (i1 = 3; i1 > 0; i1--) {
+  1487  0176  3003               	movlw	(03h)
+  1488  0177  00F0               	movwf	(??_delay1+0)+0
+  1489  0178  0870               	movf	(??_delay1+0)+0,w
+  1490  0179  00F1               	movwf	(delay1@i1)
+  1491                           	
+  1492  017A                     i1l1790:	
+  1493  017A  08F1               	movf	(delay1@i1),f
+  1494  017B  1D03               	skipz
+  1495  017C  297E               	goto	u1_21
+  1496  017D  297F               	goto	u1_20
+  1497  017E                     u1_21:
+  1498  017E  2981               	goto	i1l1794
+  1499  017F                     u1_20:
+  1500  017F  299C               	goto	i1l693
+  1501                           	
+  1502  0180                     i1l1792:	
+  1503  0180  299C               	goto	i1l693
+  1504                           	
+  1505  0181                     i1l689:	
+  1506                           	line	9
+  1507                           	
+  1508  0181                     i1l1794:	
+  1509                           ;shy_3.c: 9: for (i2 = 0x19; i2 > 0; i2--);
+  1510  0181  3019               	movlw	(019h)
+  1511  0182  00F0               	movwf	(??_delay1+0)+0
+  1512  0183  0870               	movf	(??_delay1+0)+0,w
+  1513  0184  00F2               	movwf	(delay1@i2)
+  1514                           	
+  1515  0185                     i1l1796:	
+  1516  0185  08F2               	movf	(delay1@i2),f
+  1517  0186  1D03               	skipz
+  1518  0187  2989               	goto	u2_21
+  1519  0188  298A               	goto	u2_20
+  1520  0189                     u2_21:
+  1521  0189  298C               	goto	i1l1800
+  1522  018A                     u2_20:
+  1523  018A  2994               	goto	i1l1804
+  1524                           	
+  1525  018B                     i1l1798:	
+  1526  018B  2994               	goto	i1l1804
+  1527                           	
+  1528  018C                     i1l691:	
+  1529                           	
+  1530  018C                     i1l1800:	
+  1531  018C  3001               	movlw	low(01h)
+  1532  018D  02F2               	subwf	(delay1@i2),f
+  1533                           	
+  1534  018E                     i1l1802:	
+  1535  018E  08F2               	movf	(delay1@i2),f
+  1536  018F  1D03               	skipz
+  1537  0190  2992               	goto	u3_21
+  1538  0191  2993               	goto	u3_20
+  1539  0192                     u3_21:
+  1540  0192  298C               	goto	i1l1800
+  1541  0193                     u3_20:
+  1542  0193  2994               	goto	i1l1804
+  1543                           	
+  1544  0194                     i1l692:	
+  1545                           	line	8
+  1546                           	
+  1547  0194                     i1l1804:	
+  1548  0194  3001               	movlw	low(01h)
+  1549  0195  02F1               	subwf	(delay1@i1),f
+  1550                           	
+  1551  0196                     i1l1806:	
+  1552  0196  08F1               	movf	(delay1@i1),f
+  1553  0197  1D03               	skipz
+  1554  0198  299A               	goto	u4_21
+  1555  0199  299B               	goto	u4_20
+  1556  019A                     u4_21:
+  1557  019A  2981               	goto	i1l1794
+  1558  019B                     u4_20:
+  1559  019B  299C               	goto	i1l693
+  1560                           	
+  1561  019C                     i1l690:	
+  1562                           	line	11
+  1563                           	
+  1564  019C                     i1l693:	
+  1565  019C  0008               	return
+  1566                           	opt stack 0
+  1567                           GLOBAL	__end_of_delay1
+  1568  019D                     	__end_of_delay1:
+  1569 ;; =============== function _delay1 ends ============
+  1570                           
+  1571                           	signat	_delay1,88
+  1572                           psect	text171,local,class=CODE,delta=2
+  1573                           global __ptext171
+  1574  0000                     __ptext171:
+  1575                           	global	btemp
+  1576  007E                     	btemp set 07Eh
+  1577                           
+  1578                           	DABS	1,126,2	;btemp
+  1579                           	global	wtemp0
+  1580  007E                     	wtemp0 set btemp
+
+
+HI-TECH Software PICC Macro Assembler V9.82 build 9453 
+Symbol Table                                                                                   Thu Apr 10 19:32:39 2025
+
+                   _x 007A                     _y 007B                    _RD 0C60                    _WR 0C61  
+                 l740 01BD                   l741 01BD                   l738 01BC                   l739 01BC  
+                 _GIE 005F                   _RE0 0048                   fsr0 0004           _sound_delay 0015  
+                l2850 01A8                  l2860 01B2                  l2852 01A9                  l2844 019D  
+                l2870 01BA                  l2862 01B3                  l2854 01AB                  l2846 01A3  
+                l2864 01B4                  l2856 01AC                  l2848 01A7                  l2866 01B5  
+                l2858 01AF                  l2868 01B6                  _INTE 005C                  _INTF 0059  
+                _RBIE 005B                  _RBIF 0058                  _WREN 0C62                  u1_20 017F  
+                u1_21 017E                  u2_20 018A                  u2_21 0189                  u3_20 0193  
+                u3_21 0192                  u4_20 019B                  u4_21 019A                  u5_20 0158  
+                u5_21 0157                  u6_20 0163                  u6_21 0162                  u7_20 016C  
+                u7_21 016B                  u8_20 0174                  u8_21 0173                  u9_20 0131  
+                u9_21 0130                  _main 019D                  btemp 007E                  start 0012  
+               ?_main 0070                 _EEADR 010D                 _CARRY 0018                 i1l700 0175  
+               i1l710 010C                 i1l703 0133                 i1l711 0127                 i1l704 014E  
+               i1l712 0117                 i1l720 0059                 i1l705 013E                 i1l713 011F  
+               i1l721 0065                 i1l706 0146                 i1l714 0127                 i1l722 007B  
+               i1l730 00EC                 i1l707 014E                 i1l723 0087                 i1l731 00C3  
+               i1l724 009D                 i1l732 00CB                 i1l725 009D                 i1l717 0021  
+               i1l733 00D3                 i1l718 0037                 i1l734 00DC                 i1l719 0043  
+               i1l735 00F4                 i1l728 00AC                 i1l729 00F4                 i1l690 019C  
+               i1l691 018C                 i1l692 0194                 i1l693 019C                 i1l696 015A  
+               i1l689 0181                 i1l697 0175                 i1l698 0165                 i1l699 016D  
+               u10_20 013C                 u10_21 013B                 u11_20 0145                 u11_21 0144  
+               u12_20 014D                 u20_20 0058                 u12_21 014C                 u20_21 0057  
+               u13_20 010A                 u21_20 0063                 u13_21 0109                 u21_21 0062  
+               u14_20 0115                 u22_20 007A                 u30_20 00D9                 u14_21 0114  
+               u22_21 0079                 u30_21 00D8                 u15_20 011E                 u23_20 0085  
+               u15_21 011D                 u23_21 0084                 u16_20 0126                 u24_20 009C  
+               u16_21 0125                 u24_21 009B                 u17_20 001F                 u25_20 00A2  
+               u17_21 001E                 u25_21 00A1                 u18_20 0036                 u26_20 00B1  
+               u18_21 0035                 u26_21 00B0                 u19_20 0041                 u27_20 00C1  
+               u19_21 0040                 u27_21 00C0                 _PORTB 0006                 _PORTD 0008  
+               u28_20 00C9                 u28_21 00C8                 u29_20 00D1                 u29_21 00D0  
+               _TRISB 0086                 _TRISD 0088                 _nRBPU 040F                 pclath 000A  
+               status 0003                 wtemp0 007E          __end_of_main 01C0                ??_main 0020  
+              _ADCON1 009F                _EEDATA 010C                _EECON1 018C                _EECON2 018D  
+              i1l1800 018C                i1l1802 018E                i1l1810 0153                i1l1804 0194  
+              i1l1820 0165                i1l1812 0159                i1l1900 0064                i1l1806 0196  
+              i1l1822 0167                i1l1814 015A                i1l1830 012C                i1l1910 007B  
+              i1l1902 0065                i1l1824 016D                i1l1816 015E                i1l1808 014F  
+              i1l1840 013E                i1l1832 0132                i1l1920 0090                i1l1912 007F  
+              i1l1904 0069                i1l1826 016F                i1l1818 0164                i1l1842 0140  
+              i1l1834 0133                i1l1850 0105                i1l1922 0096                i1l1914 0086  
+              i1l1906 006E                i1l1930 00A5                i1l1844 0146                i1l1836 0137  
+              i1l1828 0128                i1l1860 0117                i1l1852 010B                i1l1916 0087  
+              i1l1908 0074                i1l1940 00C1                i1l1932 00AA                i1l1924 009E  
+              i1l1790 017A                i1l1846 0148                i1l1838 013D                i1l1862 0119  
+              i1l1854 010C                i1l1918 008B                i1l1870 0019                i1l1950 00E1  
+              i1l1942 00C9                i1l1926 00A2                i1l1934 00AC                i1l1792 0180  
+              i1l1864 011F                i1l1856 0110                i1l1848 0101                i1l1880 0030  
+              i1l1872 0020                i1l1952 00E6                i1l1944 00D1                i1l1936 00B1  
+              i1l1928 00A3                i1l1794 0181                i1l1866 0121                i1l1858 0116  
+              i1l1890 0047                i1l1882 0037                i1l1874 0021                i1l1946 00D9  
+              i1l1938 00B4                i1l1954 00EC                i1l1796 0185                i1l1788 0176  
+              i1l1892 004C                i1l1884 003B                i1l1876 0025                i1l1868 0015  
+              i1l1956 00F2                i1l1948 00DC                i1l1798 018B                i1l1894 0052  
+              i1l1886 0042                i1l1878 002A                i1l1896 0059                i1l1888 0043  
+              i1l1898 005D                _INTEDG 040E                _TRISE0 0448                _delay1 0176  
+              _delay2 014F                _delay3 0128                _delay4 0101                _int_rb 009E  
+              saved_w 007E        __pcstackCOMMON 0070          sound_delay@i 0073          ?_sound_delay 0070  
+          __pnvCOMMON 007A            __pmaintext 019D               ?_delay1 0070               ?_delay2 0070  
+             ?_delay3 0070               ?_delay4 0070            __pintentry 0004               ?_int_rb 0070  
+     __size_of_delay1 0027       __size_of_delay2 0027       __size_of_delay3 0027       __size_of_delay4 0027  
+     __size_of_int_rb 0063  end_of_initialization 01C0  __size_of_sound_delay 0089        __end_of_delay1 019D  
+      __end_of_delay2 0176        __end_of_delay3 014F        __end_of_delay4 0128        __end_of_int_rb 0101  
+ start_initialization 01C0              ??_delay1 0070              ??_delay2 0070              ??_delay3 0070  
+            ??_delay4 0070              ??_int_rb 0075         __pcstackBANK0 0020             __ptext170 0176  
+           __ptext171 0000             __ptext165 009E             __ptext166 0015             __ptext167 0101  
+           __ptext168 0128             __ptext169 014F     interrupt_function 0004         ??_sound_delay 0073  
+            delay1@i1 0071              delay1@i2 0072              delay2@i1 0071              delay2@i2 0072  
+            delay3@i1 0071              delay3@i2 0072              delay4@i1 0071              delay4@i2 0072  
+       __size_of_main 0023              intlevel1 0000   __end_of_sound_delay 009E  
