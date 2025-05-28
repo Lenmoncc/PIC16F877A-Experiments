@@ -1,0 +1,13 @@
+___awdiv: CODE, 817 0 118
+___aldiv: CODE, 649 0 168
+_tmr2_serve: CODE, 1167 0 39
+_main: CODE, 346 0 303
+___lmul: CODE, 1047 0 76
+_DELAY: CODE, 1294 0 26
+_div: CODE, 21 0 325
+_ENABLE1: CODE, 1355 0 14
+___lldiv: CODE, 935 0 112
+_ENABLE: CODE, 1369 0 14
+___wmul: CODE, 1123 0 44
+___bmul: CODE, 1268 0 26
+Total: 1265
