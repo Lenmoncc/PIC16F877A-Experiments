@@ -1,0 +1,11 @@
+___awdiv: CODE, 830 0 118
+___aldiv: CODE, 662 0 168
+_main: CODE, 21 0 641
+___lmul: CODE, 948 0 76
+_ccp1_int: CODE, 1110 0 31
+_DELAY: CODE, 1141 0 28
+_ENABLE1: CODE, 1251 0 14
+_ENABLE: CODE, 1265 0 14
+___wmul: CODE, 1024 0 44
+___bmul: CODE, 1169 0 26
+Total: 1160
