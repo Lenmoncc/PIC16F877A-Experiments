@@ -1,0 +1,12 @@
+___awdiv: CODE, 1079 0 116
+___aldiv: CODE, 911 0 168
+_main: CODE, 21 0 354
+_DELAY1: CODE, 1366 0 26
+___lmul: CODE, 1195 0 74
+_DELAY: CODE, 1311 0 28
+_div: CODE, 375 0 298
+_ENABLE1: CODE, 1435 0 14
+_usart_seve: CODE, 673 0 238
+_ENABLE: CODE, 1449 0 14
+___wmul: CODE, 1269 0 42
+Total: 1372
